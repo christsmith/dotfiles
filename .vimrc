@@ -154,6 +154,12 @@ nnoremap <leader>r <C-W>v:e $MYVIMRC<cr>
 nnoremap n nzz
 nnoremap N Nzz
 
+"build ctags file
+nnoremap <leader>t :!ctags -R<cr>
+
+"build cscope file
+nnoremap <leader>T :!cscope -R<cr>
+
 " Return to last edit position when opening files
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
