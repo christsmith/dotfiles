@@ -27,7 +27,9 @@ NeoBundle 'honza/vim-snippets'			"library of snippets
 NeoBundle 'SirVer/ultisnips'			"snippet plugin
 NeoBundle 'kien/ctrlp.vim'			"fuzzy finder
 NeoBundle 'Lokaltog/powerline-fonts'		"make powerline fonts work
+NeoBundle 'Lokaltog/vim-easymotion'		"easy motion
 
+" NeoBundle 'Shougo/neocomplcache.vim'		"suggestion window
 " NeoBundle 'Valloric/YouCompleteMe'		"suggestion window
 
 " You can specify revision/branch/tag.
@@ -67,6 +69,11 @@ set linespace=-2
 highlight Comment cterm=italic
 let g:airline_powerline_fonts=1
 
+" easy motion
+
+
+map <leader>f <Plug>(easymotion-f)
+map <leader>F <Plug>(easymotion-F)
 " -------------
 " Autocomplete
 " -------------
@@ -83,7 +90,7 @@ iabbrev /**/ /******************************************************************
 nnoremap ; :
 
 " remove highlited search
-nnoremap <silent><leader>/ :nohlsearch<CR>
+nnoremap <leader>/ :nohlsearch<CR>
 
 "set leader key 
 let mapleader = " "
@@ -146,8 +153,6 @@ nnoremap <leader>r <C-W>v:e $MYVIMRC<cr>
 "center file when searching
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap k kzz
-nnoremap j jzz
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
