@@ -28,6 +28,7 @@ NeoBundle 'SirVer/ultisnips'			"snippet plugin
 NeoBundle 'kien/ctrlp.vim'			"fuzzy finder
 NeoBundle 'Lokaltog/powerline-fonts'		"make powerline fonts work
 NeoBundle 'Lokaltog/vim-easymotion'		"easy motion
+NeoBundle 'godlygeek/tabular'			"aligment
 
 " NeoBundle 'Shougo/neocomplcache.vim'		"suggestion window
 " NeoBundle 'Valloric/YouCompleteMe'		"suggestion window
@@ -71,7 +72,6 @@ let g:airline_powerline_fonts=1
 
 " easy motion
 
-
 map <leader>f <Plug>(easymotion-f)
 map <leader>F <Plug>(easymotion-F)
 " -------------
@@ -84,8 +84,8 @@ iabbrev /**/ /******************************************************************
 
 " --------
 " Mappings
-" --------
 
+" --------
 " Change : for ;
 nnoremap ; :
 
