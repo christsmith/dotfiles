@@ -29,6 +29,7 @@ NeoBundle 'kien/ctrlp.vim'			"fuzzy finder
 NeoBundle 'Lokaltog/powerline-fonts'		"make powerline fonts work
 NeoBundle 'Lokaltog/vim-easymotion'		"easy motion
 NeoBundle 'godlygeek/tabular'			"aligment
+NeoBundle 'FredKSchott/CoVim'			"realtime online editingh
 
 " NeoBundle 'Shougo/neocomplcache.vim'		"suggestion window
 " NeoBundle 'Valloric/YouCompleteMe'		"suggestion window
@@ -71,7 +72,6 @@ highlight Comment cterm=italic
 let g:airline_powerline_fonts=1
 
 " easy motion
-
 map <leader>f <Plug>(easymotion-f)
 map <leader>F <Plug>(easymotion-F)
 " -------------
@@ -84,6 +84,7 @@ iabbrev /**/ /******************************************************************
 
 " --------
 " Mappings
+" --------
 
 " --------
 " Change : for ;
@@ -154,11 +155,12 @@ nnoremap <leader>r <C-W>v:e $MYVIMRC<cr>
 nnoremap n nzz
 nnoremap N Nzz
 
+" better line mobement in wrapping text
+nnoremap j gj
+nnoremap k gk
+
 "build ctags file
 nnoremap <leader>t :!ctags -R<cr>
-
-"build cscope file
-nnoremap <leader>T :!cscope -R<cr>
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
