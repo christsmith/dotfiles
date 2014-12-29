@@ -29,7 +29,6 @@ NeoBundle 'kien/ctrlp.vim'			"fuzzy finder
 NeoBundle 'Lokaltog/powerline-fonts'		"make powerline fonts work
 NeoBundle 'Lokaltog/vim-easymotion'		"easy motion
 NeoBundle 'godlygeek/tabular'			"aligment
-NeoBundle 'FredKSchott/CoVim'			"realtime online editingh
 
 " NeoBundle 'Shougo/neocomplcache.vim'		"suggestion window
 " NeoBundle 'Valloric/YouCompleteMe'		"suggestion window
@@ -131,7 +130,7 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 
 "open NERDtree
-nnoremap <leader>n <ESC>:NERDTree<CR> 
+nnoremap <leader>n <ESC>:NERDTreeToggle<CR> 
 
 "make Y delete till end of line
 nnoremap Y y$
@@ -208,5 +207,5 @@ set nowrap
 set background=dark
 colorscheme solarized
 
-" set completion on commands
 set wildmenu
+" set completion on commands
