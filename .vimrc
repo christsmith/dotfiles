@@ -102,6 +102,8 @@ nnoremap N Nzz
 nnoremap j gj				" better line movement in wrapping text
 nnoremap k gk
 nnoremap <leader>t :!ctags -R<cr>	" build ctags file
+nnoremap ]t :tnext<cr>			" next tag
+nnoremap [t :tprev<cr>			" prev tag
 vnoremap > >gv				" keep visual selection on indent
 vnoremap < <gv
 
