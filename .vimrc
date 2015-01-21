@@ -1,5 +1,3 @@
-"Christopher smith vimrc
-
 "Bundle Scripts-----------------------------
 if has('vim_starting')
   set nocompatible
@@ -38,12 +36,10 @@ NeoBundleCheck
 " ---------------
 
 " NERDTREE
-"open NERDtree
-nnoremap <leader>n <ESC>:NERDTreeToggle<CR> 
+nnoremap <leader>n <ESC>:NERDTreeToggle<CR> "open NERDtree
 
 
 " AIRLINE
-set laststatus=2 "show airline with only one buffer
 " unicode symbols
  let g:airline_left_sep = ''
  let g:airline_right_sep = ''
@@ -60,8 +56,8 @@ set laststatus=2 "show airline with only one buffer
 " let g:airline_powerline_fonts=1
 
 " EASY MOTION
-map <leader>f <Plug>(easymotion-f)
-map <leader>F <Plug>(easymotion-F)
+nnoremap <leader>f <Plug>(easymotion-f)
+nnoremap <leader>F <Plug>(easymotion-F)
 
 " -------------
 " Autocomplete
@@ -75,24 +71,16 @@ iabbrev /**/ /******************************************************************
 " Mappings
 " --------
 
-" Change : for ;
-nnoremap ; :
-" remove highlited search
-nnoremap <leader>/ :nohlsearch<CR>
-"set leader key 
 let mapleader = " "
-"better way to move to end of line
-nnoremap L $
-"better way to move to first non white space character of line
-nnoremap H ^
-" Map enter in normal mode
-nnoremap <CR> o<ESC>
-nnoremap <C-CR> O<ESC>
-" Alternative ways to exit insert mode to normal mode
-inoremap <C-SPACE> <ESC>
+nnoremap ; :
+nnoremap <leader>/ :nohlsearch<CR> 	" remove highlited search
+nnoremap L $ 				" better way to move to end of line
+nnoremap H ^				" better way to move to first non white space character of line
+nnoremap <CR> o<ESC>			" Map enter in normal mode
+nnoremap <C-CR> O<ESC 
+inoremap <C-SPACE> <ESC>		" Alternative ways to exit insert mode to normal mode
 inoremap kj <ESC>
-" Simpler way to change split screens
-nnoremap <C-J> <C-W>j
+nnoremap <C-J> <C-W>j			" Simpler way to change split screens
 nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
@@ -101,71 +89,44 @@ nnoremap <C-down> <C-W>-
 nnoremap <C-left> <C-W><
 nnoremap <C-right> <C-W>>
 nnoremap <C-=> <C-W>=
-"open new vertial split
-nnoremap <leader>v <C-W>v
-"open new horizontal split
-nnoremap <leader>s <C-W>s
-"quite split
-nnoremap <leader>q :q<CR>
-"quick write
-nnoremap <leader>w :w<CR>
-"make Y delete till end of line
-nnoremap Y y$
-"easily underline text
-nnoremap <leader>u yypVr-
-"easily surround text
-nnoremap <leader>U yypVr-kPVr-j
-"inside next ()
-onoremap inp :<c-u>normal! f(vi(<cr>
-"inside previous ()
-onoremap ipp :<c-u>normal! F(vi(<cr>
-"open vimrc
-nnoremap <leader>r <C-W>v:e $MYVIMRC<cr>
-"center file when searching
-nnoremap n nzz
+nnoremap <leader>v <C-W>v		" open new vertial split
+nnoremap <leader>s <C-W>s		" open new horizontal split
+nnoremap <leader>q :q<CR>		" quit split
+nnoremap <leader>w :w<CR>		" quick write
+nnoremap Y y$				" make Y delete till end of line
+nnoremap <leader>1 yypVr-		" easily underline text
+nnoremap <leader>2 yypVr-kPVr-j		" easily surround text
+nnoremap <leader>r <C-W>v:e $MYVIMRC<cr>" open vimrc
+nnoremap n nzz				" center file when searching
 nnoremap N Nzz
-" better line mobement in wrapping text
-nnoremap j gj
+nnoremap j gj				" better line movement in wrapping text
 nnoremap k gk
-"build ctags file
-nnoremap <leader>t :!ctags -R<cr>
-" keep visual selection on indent
-vnoremap > >gv
+nnoremap <leader>t :!ctags -R<cr>	" build ctags file
+vnoremap > >gv				" keep visual selection on indent
 vnoremap < <gv
+
 " --------
 " Settings
 " --------
-" show line number
-set number
-" Set auto indenting
-set autoindent
-" Always show current position
-set ruler
-" Highlight search results
-set hlsearch
+set number				" show line number
+set autoindent				" Set auto indenting
+set ruler				" Always show current position
+set hlsearch				" Highlight search results
 syntax enable
-" Disable bells
-set noerrorbells
+set noerrorbells			" Disable bells
 set novisualbell
-" Show line numbers
-set number
-" Remove Toolbar
-set guioptions-=T
-" Remove sidebars
-set guioptions+=LlRrb
+set number				" Show line numbers
+set guioptions-=T			" Remove Toolbar
+set guioptions+=LlRrb			" Remove sidebars
 set guioptions-=LlRrb 
-" Skip into message
-set shortmess+=I
+set shortmess+=I			" Skip into message
 set nowrap
-" Set defult color scheme
-set background=dark
+set background=dark			" Set defult color scheme
 colorscheme solarized
-" enable completion on the command line
-set wildmenu
-" keep 5 lines at the top and bottom when scrolling
-set scrolloff=5
-" make the native clipboard work
-set clipboard=unnamed 
+set wildmenu				" enable completion on the command line
+set scrolloff=5				" keep 5 lines at the top and bottom when scrolling
+set clipboard=unnamed			" make the native clipboard work
+set laststatus=2			" show underbar with only one buffer
 
 " ---------
 " FUNCTIONS
