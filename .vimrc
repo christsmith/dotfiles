@@ -35,10 +35,6 @@ NeoBundleCheck
 " PLUGIN SETTINGS
 " ---------------
 
-" NERDTREE
-nnoremap <leader>n <ESC>:NERDTreeToggle<CR> "open NERDtree
-
-
 " AIRLINE
 " unicode symbols
  let g:airline_left_sep = ''
@@ -73,14 +69,21 @@ iabbrev /**/ /******************************************************************
 
 let mapleader = " "
 nnoremap ; :
-nnoremap <leader>/ :nohlsearch<CR> 	" remove highlited search
-nnoremap L $ 				" better way to move to end of line
-nnoremap H ^				" better way to move to first non white space character of line
-nnoremap <CR> o<ESC>			" Map enter in normal mode
+nnoremap <leader>n <ESC>:NERDTreeToggle<CR> 
+" remove highlited search
+nnoremap <leader>/ :nohlsearch<CR>
+" better way to move to end of line
+nnoremap L $
+" better way to move to first non white space character of line
+nnoremap H ^
+" Map enter in normal mode
+nnoremap <CR> o<ESC>
 nnoremap <C-CR> O<ESC 
-inoremap <C-SPACE> <ESC>		" Alternative ways to exit insert mode to normal mode
+" Alternative ways to exit insert mode to normal mode
+inoremap <C-SPACE> <ESC>
 inoremap kj <ESC>
-nnoremap <C-J> <C-W>j			" Simpler way to change split screens
+" Simpler way to change split screens
+nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
@@ -89,22 +92,36 @@ nnoremap <C-down> <C-W>-
 nnoremap <C-left> <C-W><
 nnoremap <C-right> <C-W>>
 nnoremap <C-=> <C-W>=
-nnoremap <leader>v <C-W>v		" open new vertial split
-nnoremap <leader>s <C-W>s		" open new horizontal split
-nnoremap <leader>q :q<CR>		" quit split
-nnoremap <leader>w :w<CR>		" quick write
-nnoremap Y y$				" make Y delete till end of line
-nnoremap <leader>1 yypVr-		" easily underline text
-nnoremap <leader>2 yypVr-kPVr-j		" easily surround text
-nnoremap <leader>r <C-W>v:e $MYVIMRC<cr>" open vimrc
-nnoremap n nzz				" center file when searching
+" open new vertial split
+nnoremap <leader>v <C-W>v
+" open new horizontal split
+nnoremap <leader>s <C-W>s
+" quit split
+nnoremap <leader>q :q<CR>
+" quick write
+nnoremap <leader>w :w<CR>
+" make Y delete till end of line
+nnoremap Y y$
+" easily underline text
+nnoremap <leader>1 yypVr-
+" easily surround text
+nnoremap <leader>2 yypVr-kPVr-j
+" open vimrc
+nnoremap <leader>r <C-W>v:e $MYVIMRC<cr>
+" center file when searching
+nnoremap n nzz
 nnoremap N Nzz
-nnoremap j gj				" better line movement in wrapping text
+" better line movement in wrapping text
+nnoremap j gj
 nnoremap k gk
-nnoremap <leader>t :!ctags -R<cr>	" build ctags file
-nnoremap ]t :tnext<cr>			" next tag
-nnoremap [t :tprev<cr>			" prev tag
-vnoremap > >gv				" keep visual selection on indent
+" build ctags file
+nnoremap <leader>t :!ctags -R<cr>
+" next tag
+nnoremap ]t :tnext<cr>
+" prev tag
+nnoremap [t :tprev<cr>
+" keep visual selection on indent
+vnoremap > >gv
 vnoremap < <gv
 
 " --------
