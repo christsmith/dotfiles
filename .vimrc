@@ -38,11 +38,11 @@ NeoBundleCheck
 " AIRLINE
 " unicode symbols
  let g:airline_left_sep = ''
- let g:airline_right_sep = ''
- let g:airline_symbols.linenr = '¶'
- let g:airline_symbols.branch = '⎇'
- let g:airline_symbols.paste = 'ρ'
- let g:airline_symbols.whitespace = 'Ξ'
+" let g:airline_right_sep = ''
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.whitespace = 'Ξ'
 
 " powerline symbols
 " set guifont=Meslo_LG_M_for_Powerline:h11 
