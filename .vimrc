@@ -10,7 +10,10 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" Let NeoBundle manage NeoBundle NeoBundleFetch 'Shougo/neobundle.vim' " My Bundles here:
+" Let NeoBundle manage NeoBundle 
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
 NeoBundle 'flazz/vim-colorschemes'		"Lots of colour schemes
 NeoBundle 'altercation/vim-colors-solarized'	"The best color scheme
 NeoBundle 'scrooloose/nerdtree'			"file Browser
