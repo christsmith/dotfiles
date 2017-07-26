@@ -1,33 +1,49 @@
 "Bundle Scripts-----------------------------
-if has('vim_starting')
-  set nocompatible
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
 
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+	set nocompatible               " Be iMproved
 endif
 
-call neobundle#begin(expand('~/.vim/bundle'))
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-NeoBundle 'flazz/vim-colorschemes'		"Many colour schemes
+" Let NeoBundle manage NeoBundle NeoBundleFetch 'Shougo/neobundle.vim' " My Bundles here:
+NeoBundle 'flazz/vim-colorschemes'		"Lots of colour schemes
 NeoBundle 'altercation/vim-colors-solarized'	"The best color scheme
 NeoBundle 'scrooloose/nerdtree'			"file Browser
 NeoBundle 'scrooloose/syntastic'		"Syntac checking
 NeoBundle 'bling/vim-airline'			"Status bar
+"NeoBundle 'vim-airline/vim-airline-themes'      "Status bar themes
 NeoBundle 'tpope/vim-surround'			"easily change surroundings
+NeoBundle 'SirVer/ultisnips' 			"snippet engine
 NeoBundle 'honza/vim-snippets'			"library of snippets
 NeoBundle 'SirVer/ultisnips'			"snippet plugin
 NeoBundle 'kien/ctrlp.vim'			"fuzzy finder
 NeoBundle 'Lokaltog/powerline-fonts'		"make powerline fonts work
 NeoBundle 'Lokaltog/vim-easymotion'		"easy motion
 NeoBundle 'godlygeek/tabular'			"aligment
+NeoBundle 'tpope/vim-fugitive'			"git wrapper
+NeoBundle 'haya14busa/incsearch.vim'		"incremental search with regex
+NeoBundle 'Conque-GDB'                          "gdb
+NeoBundle 'mbbill/undotree'                     "undo tree
+NeoBundle 'xolox/vim-easytags'			"tag file management
+NeoBundle 'xolox/vim-misc'			"misc vimscript auto load funtions for easytags
+NeoBundle 'majutsushi/tagbar'			"solution explorer
+NeoBundle 'airblade/vim-gitgutter'              "git diff in gutter
+NeoBundle 'majutsushi/tagbar'                   "solution explorer
+NeoBundle 'valloric/youcompleteme'              "completion suggestions
 
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" NeoBundle 'fatih/vim-go'
 
 call neobundle#end()
 filetype plugin indent on
 
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
@@ -35,33 +51,45 @@ NeoBundleCheck
 " PLUGIN SETTINGS
 " ---------------
 
-" AIRLINE
-" unicode symbols
- let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.whitespace = 'Ξ'
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" powerline symbols
-" set guifont=Meslo_LG_M_for_Powerline:h11 
-" set encoding=utf-8
-" set linespace=-2
-" highlight Comment cterm=italic
-" let g:airline_powerline_fonts=1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2 " auto close when no errors, but not auto open
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+nnoremap <leader>e :Errors<cr>
+nnoremap <leader>E :lclose<cr> 
 
 " EASY MOTION
 nnoremap <leader>f <Plug>(easymotion-f)
 nnoremap <leader>F <Plug>(easymotion-F)
 
-" -------------
-" Autocomplete
-" -------------
+" ConqueGdb
+let g:ConqueGdb_Leader = 'g'
 
-iabbrev #d #define
-iabbrev #i #include
-iabbrev /**/ /********************************************************************/
+
+"undo tree
+nnoremap <leader>u :UndotreeToggle<cr>
+
+"easy tags
+let g:easytags_autorecurse = 0
+let g:easytags_async = 1
+let g:easytags_auto_highlight = 0 " Takes way too long. it's not worth it
+"save tags in project directory as ./tags
+let g:easytags_dynamic_files = 2
+set cpoptions+=d
+set tags=./tags;
+
+"tagbar
+nnoremap <leader>c :TagbarToggle<CR>
+
+"You complete me
+let g:ycm_auto_trigger = 0
+
 
 " --------
 " Mappings
@@ -80,7 +108,6 @@ nnoremap H ^
 nnoremap <CR> o<ESC>
 nnoremap <C-CR> O<ESC 
 " Alternative ways to exit insert mode to normal mode
-inoremap <C-SPACE> <ESC>
 inoremap kj <ESC>
 " Simpler way to change split screens
 nnoremap <C-J> <C-W>j
@@ -114,8 +141,6 @@ nnoremap N Nzz
 " better line movement in wrapping text
 nnoremap j gj
 nnoremap k gk
-" build ctags file
-nnoremap <leader>t :!ctags -R<cr>
 " next tag
 nnoremap ]t :tnext<cr>
 " prev tag
@@ -123,6 +148,10 @@ nnoremap [t :tprev<cr>
 " keep visual selection on indent
 vnoremap > >gv
 vnoremap < <gv
+"tabs
+nnoremap <leader>t :tab split<cr>
+nnoremap <leader>l :tabNext<cr>
+nnoremap <leader>h :tabprevious<cr>
 
 " --------
 " Settings
@@ -131,7 +160,7 @@ set number				" show line number
 set autoindent				" Set auto indenting
 set ruler				" Always show current position
 set hlsearch				" Highlight search results
-syntax enable
+set incsearch				" Incremental search
 set noerrorbells			" Disable bells
 set novisualbell
 set number				" Show line numbers
@@ -140,12 +169,14 @@ set guioptions+=LlRrb			" Remove sidebars
 set guioptions-=LlRrb 
 set shortmess+=I			" Skip into message
 set nowrap
-set background=dark			" Set defult color scheme
-colorscheme solarized
 set wildmenu				" enable completion on the command line
 set scrolloff=5				" keep 5 lines at the top and bottom when scrolling
 set clipboard=unnamed			" make the native clipboard work
 set laststatus=2			" show underbar with only one buffer
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 " ---------
 " FUNCTIONS
